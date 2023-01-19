@@ -1,0 +1,529 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>代马数据网|代马搜索，经济数据库EDB，金融等行业数据索你所需</title>
+            <meta name="description" content="代马数据|代马搜索，金融等行业数据索你所需！代马数据，助力您科学决策" /> 
+
+            <link rel="shortcut icon" href="favicon.ico" />
+            <!--Google fonts-->
+            <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900"> -->
+
+            <!--vendors styles-->
+            <!-- <link rel="stylesheet" href="css/font-awesome.css"> -->
+
+            <!-- Bootstrap CSS / Color Scheme -->
+            <link rel="stylesheet" href="css/default.css" id="theme-color">
+
+
+            <link href="css/search-model/Source.css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+            <link href="css/search-model/css.css?family=Schoolbell" rel="stylesheet">
+            <link href="css/search-model/reset.min.css" rel="stylesheet">
+            <link href="css/search-model/style.css" rel="stylesheet">
+            <style type="text/css">
+
+                .search-key{
+                    float:left;width: 55px;margin-top: 3px; margin-left:1.6px;font-size: 12px;
+                }
+            </style>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4905de3e31f31456ea0e390285664e06";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+        </head>
+        <body style="text-align: left;font-size: 1rem;font-weight: 400;line-height: 1.5;text-shadow:none;">
+
+            <!--navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top sticky-parallex" style="background-color: #283747;">
+                <a class="navbar-brand" href="https://www.datamake.cn">
+                    代马数据网
+                </a>
+                <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse" 
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span data-feather="grid"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="https://www.datamake.cn">首页 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="https://www.datamake.cn/sea.html">检索</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="https://www.datamake.cn/data.html">EDB</a>
+                        </li><!-- 
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="https://www.datamake.cn/stock.html">股票</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="https://www.datamake.cn/help.html">使用指南</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" href="#loginModal">登陆</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <button data-toggle="modal" data-target="#signupModal" type="button"
+                                class="btn btn-secondary my-2 my-sm-0 btn-signup">开始</button>
+                    </form>
+                </div>
+            </nav>
+
+            
+
+            <!--pricing-->
+            <section class="py-7" id="pricing" style="padding-bottom: 0rem !important;padding-top: 0rem !important;text-align: center;background-color: white !important;">
+                 <div class="wrapper" style="padding-top: 12rem !important;font-size:30px;">
+        
+                    <h1 style="color: black;font-weight:500;"  >代马搜索</h1>
+
+                    <div class="search" style="margin-top:30px">
+                        <label for="search-input" class="search-input-label"></label>
+                        <input type="text" id="search-input" class="search-input" placeholder="eg:猪肉/石油/房地产" style="margin-left:50px;">
+                        <button type="button" class="btn my-2 my-sm-0 btn-signup btn-primary" style="margin-left:5px;background-color: rgb(229 229 229);height:39px;color: #272829;background-color: rgb(229 229 229);" id="search_btn">搜索</button>
+                        <!-- <p style="font-size:14px;">想要提高搜索命中率，建议获取搜索目录，请关注页面底部微信公众号，回复目录即可获得</p> -->
+                    </div>
+
+                    <div class="loader"></div>
+                    <div class="loader"></div>
+
+                    <div class="search-output" style="margin-left:300px;color:black;"></div>
+                    <div style="background-color:rgba(0,0,0,0.1);width:550px;height:120px;margin-top: 15px; margin-left: 390px;">
+                        <div style="padding:5px 20px 20px 20px;color: black;font-size:14px;text-align:left;">
+                            <div style="width:550px;padding-left:0px; font-size: 14px;">
+                                <span>热门搜索词</span>
+                                <!--<span style="margin-left: 80px; font-size: 12px;color:#0957d9;">请输入简要的金融数据指标，不要包含时间</span>-->
+                            </div>
+                            <ul class="search-key">
+                                <li>价格</li>
+                                <li>指数</li>
+                                <li>金融</li>
+                                <li>销售量</li>
+                                <li>金属</li>
+                            </ul>
+                            <ul class="search-key">
+                               <li>互联网</li>
+                                <li>上证</li>
+                                <li>城镇职工</li>
+                                <li>商品房</li>
+                                <li>建筑</li>
+                            </ul>
+                
+                            <ul class="search-key">
+                               <li>生产总值</li>
+                                <li>铁路</li>
+                                <li>电子器件</li>
+                                <li>钢铁</li>
+                                <li>用水</li>
+                            </ul>
+                            <ul class="search-key">
+                                <li>石油气</li>
+                                <li>出口量</li>
+                                <li>劳动力</li>
+                                <li>钢铁</li>
+                                <li>保险</li>
+                            </ul>
+                            <ul class="search-key">
+                               <li>蔬菜</li>
+                                <li>食品类</li>
+                                <li>牛肉</li>
+                                <li>大米</li>
+                                <li>玉米</li>
+
+                            </ul>
+                            <ul class="search-key">
+                                <li>金融交易</li>
+                                <li>金融机构</li>
+                                <li>计算机</li>
+                                <li>汽车</li>
+                                <li>发电量</li>
+
+                            </ul>
+                            <ul class="search-key">
+                                <li>影院</li>
+                                <li>学龄儿童</li>
+                                <li>生产量</li>
+                                <li>民办</li>
+                                <li>政府</li>
+
+                            </ul>
+                            <ul class="search-key">
+                                <li>汽车零件</li>
+                                <li>火力发电</li>
+                                <li>餐饮业</li>
+                                <li>铝合金</li>
+                                <li>电子商务</li>
+                            </ul>
+                            <ul class="search-key">
+                                <li>药材</li>
+                                <li>烟类</li>
+                                <li>财产</li>
+                                <li>租赁业</li>
+                                <li>新能源</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+
+                    <div style="display: none; position: absolute;z-index:1;background-color:rgba(1,0,0,0);width:280px;height:460px;top:200px;">
+                        <div style="padding:20px 20px 20px 20px;color: white;font-size:14px;text-align:left;">
+                            <div style="width:280px;padding-left:0px; font-size: 16px;"><span>热门搜索词</span></div>
+                            <ul style="float:left;width: 80px;margin-top: 10px;">
+                             
+                            </ul>
+                            <ul style="float:left;width: 80px;margin-top: 10px;">
+                                <li>出口量</li>
+                                <li>劳动力</li>
+                                <li>财政支出</li>
+                                <li>私营企业</li>
+                                <li>医疗机构</li>
+                                <li>动物</li>
+                                <li>牛奶</li>
+                                <li>农产品</li>
+                                <li>人口</li>
+                                
+                            </ul><ul style="float:left;width: 80px;margin-top: 10px;">
+                                <li>传染病</li>
+                                <li>电子设备</li>
+                                <li>离婚率</li>
+                                <li>商业</li>
+                                <li>基础设施</li>
+                                <li>营业税</li>
+                                <li>冰箱</li>
+                                <li>化工</li>
+                                <li>金融交易</li>
+                                <li>金融机构</li>
+                                <li>计算机</li>
+                                <li>汽车</li>
+                                <li>发电量</li>
+                                <li>总收入</li>
+                                <li>中国</li>
+                                <li>石油</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div style="display: none;position: absolute;z-index:1;background-color:rgba(0,0,0,0.2);width:280px;height:460px;top:200px;margin-left:1050px;">
+                        <div style="padding:20px 20px 20px 20px;color: white;font-size:14px;text-align:left;">
+                            <div style="width:280px;padding-left:0px; font-size: 16px;"><span>推荐搜索词</span></div>
+                            <ul style="float:left;width: 80px;margin-top: 10px;">
+                                <li>消费品</li>
+                                <li>畜牧业</li>
+                                <li>电视</li>
+                                <li>销售量</li>
+                                <li>医院</li>
+                                <li>太阳能</li>
+                                <li>电力工程</li>
+                                <li>化工原料</li>
+                                <li>票房</li>
+                                <li>原材料</li>
+                                <li>电视剧</li>
+                                <li>天然橡胶</li>
+                                <li>普通高中</li>
+                                <li>出口量</li>
+                                <li>食品工业</li>
+                                <li>钢筋</li>
+                                <li>煤量</li>
+                                <li>客运</li>
+                                <li>轻工业</li>
+
+                            </ul>
+                            <ul style="float:left;width: 80px;margin-top: 10px;">
+                                <li>油漆</li>
+                                <li>耕地</li>
+                                <li>股票</li>
+                                <li>合资经营</li>
+                                <li>航班</li>
+                                <li>幼禽</li>
+                                <li>超市</li>
+                                <li>汽车零件</li>
+                                <li>火力发电</li>
+                                <li>存款</li>
+                                <li>零售业</li>
+                                <li>医疗机构</li>
+                                <li>企业法人</li>
+                                <li>港口</li>
+                                <li>居民</li>
+                                <li>外商独资</li>
+                                <li>电信业务</li>
+                                <li>地市级</li>
+                                <li>绵羊</li>
+                                
+                            </ul><ul style="float:left;width: 80px;margin-top: 10px;">
+                                <li>药材</li>
+                                <li>烟类</li>
+                                <li>财产</li>
+                                <li>租赁业</li>
+                                <li>新能源</li>
+                                <li>显示器</li>
+                                <li>移动电话</li>
+                                <li>食用油</li>
+                                <li>财经</li>
+                                <li>教育部门</li>
+                                <li>手机</li>
+                                <li>人民币</li>
+                                <li>饮料类</li>
+                                <li>洗衣机</li>
+                                <li>在校学生</li>
+                                <li>文化用品</li>
+                                <li>铜矿</li>
+                                <li>机动车</li>
+                                <li>运输业</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+
+            
+
+            <!--footer-->
+            <footer class="py-6 bg-dark text-white" id="contact" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>代马数据网 | 公众号</h5>
+                            <p class="text-muted mt-4">
+                                代马数据网，让金融数据唾手可得。专注于金融等行业数据，提供全方位系统化的数据服务，助力您科学决策。
+                            </p>
+                            <ul class="list-inline social social-sm mt-4">
+                                <!-- <li class="list-inline-item">
+                                    <a ><i class="fa fa-weibo"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a ><i class="fa fa-weixin"></i></a>
+                                </li> -->
+                                <li class="list-inline-item">
+                                    <img src="img/weixin.jpg" style="width: 100px;height: 100px;">
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                        <div class="col-md-3 ml-auto">
+                            <h5>关于代马数据网</h5>
+                            <ul class="list-unstyled mt-4">
+                                <li><a href="https://www.datamake.cn/help.html">使用指南</a></li>
+                                <li><a href="https://www.datamake.cn/sea.html">在线搜索</a></li>
+                                <li><a href="https://www.datamake.cn/rank.html">排行</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p class="text-white">
+                                <span data-feather="message-circle" width="40" height="40"></span>
+                            </p>
+                            <h5 class="text-capitalize">需要帮助?</h5>
+                            <p class="text-muted mt-4">
+                                给我们发送邮件 <a href="mailto:service@datamake.cn?subject=需要帮助">service@datamake.cn</a> 如果您有任何问题，我们都将及时为您解决
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="my-5"/>
+                    <div class="row">
+                        <div class="col-12 text-muted text-center">
+                            &copy; 2019- <a href="https://beian.miit.gov.cn/#/Integrated/index" >京ICP备2020046497号</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!--scroll to top-->
+            <div class="scroll-top">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+            </div>
+
+            <!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)-->
+            <div class="switcher-wrap">
+                <div class="switcher-trigger">
+                    <span class="fa fa-gear"></span>
+                </div>
+                <div class="color-switcher">
+                    <h6>切换主题颜色</h6>
+                    <ul class="mt-3 clearfix">
+                        <li class="bg-blue active" data-color="default" title="Default Blue"></li>
+                        <li class="bg-green" data-color="green" title="Green"></li>
+                        <li class="bg-indigo" data-color="indigo" title="Indigo"></li>
+                        <li class="bg-orange" data-color="orange" title="Orange"></li>
+                        <li class="bg-black" data-color="black" title="Black"></li>
+                        <li class="bg-red" data-color="red" title="Red"></li>
+                        <li class="bg-teal" data-color="teal" title="Teal"></li>
+                        <li class="bg-cyan" data-color="cyan" title="Cyan"></li>
+                        <li class="bg-purple" data-color="purple" title="Purple"></li>
+                        <li class="bg-pink" data-color="pink" title="Pink"></li>
+                    </ul>
+                    <p> 找到你更喜欢的颜色吧</p>
+                </div>
+            </div>
+
+            
+
+
+             <!-- Modals 
+            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header py-2">
+                            <h4 class="modal-title text-center w-100" id="videoModalLabel">www.datamake.cn</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-2">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <input type="text" value="search" />
+                                <iframe class="embed-responsive-item allowfullscreen" src="https://v.youku.com/v_show/id_XMTY2NTk3NDg1Mg==.html" 
+                                        allowfullscreen="" frameborder="0" height="415" width="100%"></iframe>
+                                      
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
+
+            <!--login modal-->
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" style="text-align: center;">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content" style="color:#2E4053;">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center w-100" id="loginModalLabel">登陆您的账号</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: left;">
+                            <form>
+                                <div class="form-group">
+                                    <label id = 'loginerrmsg' style="color:red;display: none;" for="s-name"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">邮箱地址</label>
+                                    <input type="text" class="form-control" id="email" placeholder="邮箱地址">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">密码</label>
+                                    <input type="password" class="form-control" id="password" placeholder="英文数字组成的密码">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="remember">
+                                    <label class="custom-control-label" for="remember">记住您的密码14天</label>
+                                </div>
+                                <br/>
+                                <button type="submit" class="btn btn-primary btn-block">登陆</button>
+                            </form>
+                            <p class="text-center mt-4 mb-0">
+                                <a onclick="$('#loginModal').modal('toggle')" data-toggle="modal" href="#forgetPasswordModal" class="text-muted">忘记密码?</a>
+                            </p>
+                        </div>
+                        <div class="modal-footer bg-light small">
+                            还没有账号?&nbsp;&nbsp;
+                            <a onclick="$('#loginModal').modal('toggle')" data-toggle="modal" href="#signupModal">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--forget password modal-->
+            <div class="modal fade" id="forgetPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgetPasswordModalLabel" aria-hidden="true" style="text-align: center;">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content" style="color:#2E4053;">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center w-100" id="forgetPasswordModalLabel">忘记密码</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: left;">
+                            <p>请输入您的邮箱，我们会发送修改密码链接给您</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="r-email" placeholder="邮箱地址">
+                                </div>
+                                <br/>
+                                <button type="submit" class="btn btn-primary btn-block">确认</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer bg-light small">
+                            我想回到登陆窗口 &nbsp;
+                            <a onclick="$('#forgetPasswordModal').modal('toggle')" data-toggle="modal" href="#loginModal">登陆</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--signup modal-->
+            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true" style="text-align: center;">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content" style="color:#2E4053;">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center w-100" id="signupModalLabel">开始注册您的帐号吧</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: left;">
+                            <form>
+                                <div class="form-group">
+                                    <label id = 'errmsg' style="color:red;display: none;" for="s-name"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="s-name">姓名</label>
+                                    <input type="text" class="form-control" id="s-name" placeholder="姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label for="s-email">邮箱地址</label>
+                                    <input type="email" class="form-control" id="s-email" placeholder="邮箱地址">
+                                </div>
+                                <div class="form-group">
+                                    <label for="s-password">密码</label>
+                                    <input type="password" class="form-control" id="s-password" placeholder="需要包含大小写字母和数字 长度6-10位">
+                                </div>
+                                <br/>
+                                <button type="submit" class="btn btn-primary btn-block">注册</button>
+                            </form>
+                            <p class="text-center mt-4 mb-0 small text-muted">
+                                通过在datamake创建帐户，您需要同意我们的
+                                <a class="text-muted">隐私政策</a> and 
+                                <a class="text-muted">服务条款</a>.
+                            </p>
+                        </div>
+                        <div class="modal-footer bg-light small">
+                            已经拥有账号?&nbsp;&nbsp;
+                            <a id= 'registologin' onclick="$('#signupModal').modal('toggle')" data-toggle="modal" href="#loginModal">登陆</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/feather.min.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/search-model/search.js"></script>
+<!--         <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?12e4e7b1ed0bbbd09da6cb8bf92dcbd9";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script> -->
+    </html>

@@ -1,0 +1,129 @@
+//DOM load event
+window.addEventListener("DOMContentLoaded", function () {
+
+    var search = document.querySelector('.search-input'),
+        searchOutput = document.querySelector('.search-output'),
+        loader = document.querySelector('.loader');
+
+    var searchTerm = '',
+        output = '';
+
+    search.addEventListener('keyup', debounce(function () {
+
+        //Display loader
+        loader.style.display = 'block';
+
+        //Clear search output
+        searchOutput.innerHTML = '';
+
+        //Clear output string
+        output = '';
+
+        //Get search term
+        searchTerm = search.value.replace(' ', '+');
+
+        fetch('https://datamake.cn/search?searchKey=' + searchTerm).then(function (res) {
+            return res.json();
+        }).then(function (data) {
+
+            var characters = data.msg;
+
+            if (data.result == 1) {
+                loader.style.display = 'none';
+                searchOutput.innerHTML = '<p class="no-results">' + data.msg + '</p>';
+                return;
+            }
+
+            //var totalPages = data.info.pages;
+            var totalPages = 1;
+
+            if (totalPages > 1) {
+                var _loop = function _loop() {
+
+                    var page = i;
+                    fetch('https://rickandmortyapi.com/api/character/?page=' + i + '&name=' + searchTerm).then(function (res) {
+                        return res.json();
+                    }).then(function (data) {
+
+                        //Add characters to characters array
+                        characters = characters.concat(data.results);
+
+                        //Check if final page
+                        if (page === totalPages) {
+
+                            //Display characters
+                            displayCharacters(characters);
+                        }
+                    });
+                };
+
+                for (i = 2; i <= totalPages; i++) {
+                    _loop();
+                }
+            } else {
+                if (characters.length == 0 ){
+                    loader.style.display = 'none';
+                    searchOutput.innerHTML = '<p class="no-results">未发现数据</p>';
+                }else{
+                    //Display characters
+                    displayCharacters(characters);
+                }
+
+            }
+        }).catch(function (err) {
+
+            //Remove loader
+            loader.style.display = 'none';
+
+            //No results found
+            searchOutput.innerHTML = '<p class="no-results">No Results Found</p>';
+        });
+    }));
+
+    function displayCharacters(characters) {
+
+        characters.forEach(function (character) {
+
+            //Add character to output string
+            // output += '<details class="character-details">\n\n                <summary class="character-summary">' + character.name + '</summary> \n\n                <div class="character-container">\n\n                    <div class="character-info">\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">Name</summary>\n                            <p class="character-info-item-data">' + character.name + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">Species</summary>\n                            <p class="character-info-item-data">' + character.species + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">Gender</summary>\n                            <p class="character-info-item-data">' + character.gender + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">Location</summary>\n                            <p class="character-info-item-data">' + character.location.name + '</p>\n                        </details>\n\n                    </div>\n\n                    <div class="character-image-container">\n\n                        <img class="character-image" src="' + character.image + '" alt="' + character.name + '">\n\n                    </div>\n\n                </div>\n\n            </details>';
+                        output += '<details class="character-details">\n\n                <summary class="character-summary">' + character.name + '</summary> \n\n                <div class="character-container">\n\n                    <div class="character-info">\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">名称</summary>\n                            <p class="character-info-item-data">' +  character.name + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">类型</summary>\n                            <p class="character-info-item-data">' + character.type + ' ' + character.unit + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">时间</summary>\n                            <p class="character-info-item-data">' + character.x + '</p>\n                        </details>\n\n                        <details class="character-info-item" open>\n                            <summary class="character-info-item-summary">数值</summary>\n                            <p class="character-info-item-data">' + character.y + '</p>\n                        </details>\n\n                    </div>\n\n                    <div class="character-image-container">\n\n                        <a href="https://datamake.cn/image_response?id=' + character.id + '" style="color:white;font-weight: bold" target="_blank"><img class="character-image" src="https://datamake.cn/img/example.png" alt="' + character.name + '"></a>\n\n                    </div>\n\n                </div>\n\n            </details>';
+
+        });
+
+        //Remove loader
+        loader.style.display = 'none';
+
+        //Output results
+        searchOutput.innerHTML = output;
+    }
+
+    //Debounce function
+    function debounce(func) {
+        var _this = this,
+            _arguments = arguments;
+
+        var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 800;
+        var immediate = arguments[2];
+
+
+        var timeout = void 0;
+
+        return function () {
+
+            var context = _this,
+                args = _arguments;
+
+            clearTimeout(timeout);
+
+            timeout = setTimeout(function () {
+
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            }, wait);
+
+            if (immediate && !timeout) func.apply(context, args);
+        };
+    }
+
+    console.log('Wubba Lubba Dub-Dub! 👨‍👦 🍾🔬🔫🌌🚀👾');
+});

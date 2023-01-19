@@ -1,0 +1,268 @@
+<html>
+
+<head>
+   <!--  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <style type="text/css" src = "http://demo.qfpffmp.cn/cssthemes6/templatemo_418_form_pack/css/templatemo_style.css"></style> -->
+<style type="text/css">
+    body {
+        color: #fff;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-size: 12px;
+        line-height: 1.42857143;
+        font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .col-lg-6 {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        font-size: 12px;
+        line-height: 1.42857143;
+        color: #333;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        box-sizing: border-box;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 15px;
+        float: left;
+        width: 50%;
+    }
+
+    .sparkline8-list {
+        box-shadow: 0 0 20px rgba(0,0,0,.3);
+    }
+
+    .sparkline8-hd {
+        padding: 15px 20px;
+        background: #393939;
+        border-bottom: 1px solid #303030;
+    }
+
+    .main-sparkline8-hd {
+        position: relative;
+    }
+
+    h4 {
+        font-family: inherit;
+        line-height: 1.1;
+        font-size: 16px;
+        position: relative;
+        margin: 0px;
+        color: #fff;
+    }
+
+    .sparkline8-graph {
+        padding: 20px;
+        text-align: center;
+        background: #393939;
+    }
+
+    .static-table-list {
+        text-align: left;
+    }
+
+    .table {
+        text-align: left;
+        box-sizing: border-box;
+        background-color: transparent;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0px;
+    }
+
+    tr {
+        text-align: left;
+        border-collapse: collapse;
+        border-spacing: 0;
+        box-sizing: border-box;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    th {
+        border-collapse: collapse;
+        border-spacing: 0;
+        text-align: left;
+        box-sizing: border-box;
+        padding: 8px;
+        vertical-align: bottom;
+        color: #fff;
+        border-top: 0;
+        border-bottom: 1px solid #303030;
+    }
+
+    td {
+        text-align: left;
+        border-collapse: collapse;
+        border-spacing: 0;
+        box-sizing: border-box;
+        padding: 8px;
+        vertical-align: top;
+        border-top: 1px solid #303030;
+        color: #fff;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="data_content" style=" padding: 50px 20px 12px 20px;text-align: center;">
+        <h4 id="citytitle"></h4>
+        <div id= "data" style="font-size: 3px;"></div>
+        
+
+        
+
+
+        <!-- <table id="table-1">
+            <tr><th>城市指标</th><th>数值</th><th>城市指标</th><th>数值</th><th>城市指标</th><th>数值</th></tr>
+            <tr>
+                <td>城市建设用地面积-平方公里</td>
+                <td>1212</td>
+            
+                <td>公用设施用地-平方公里</td>
+                <td>1212</td>
+
+                <td>公用设施用地-平方公里</td>
+                <td>1212</td>
+            </tr>
+            <tr>
+                <td>城市建设用地面积-平方公里</td>
+                <td>1212</td>
+            
+                <td>公用设施用地-平方公里</td>
+                <td>1212</td>
+
+                <td>公用设施用地-平方公里</td>
+                <td>1212</td>
+            </tr>
+
+        </table> -->
+
+
+
+
+
+
+       
+
+
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+    function getCookie(c_name) {
+                if (document.cookie.length > 0) {
+                    c_start = document.cookie.indexOf(c_name + "=");
+                    if (c_start != -1) {
+                        c_start = c_start + c_name.length + 1;
+                        c_end = document.cookie.indexOf(";", c_start);
+                        if (c_end == -1) c_end = document.cookie.length;
+                        return unescape(decodeURI(document.cookie.substring(c_start, c_end), "UTF-8"));
+                    }
+                }
+                return "";
+    }
+
+
+    var name = '2018城市人口和建设用地-北京';
+
+    // ajax 同步 全局设置
+    $.ajaxSetup({
+        async: false
+    });
+
+    // 全局函数
+    window.handle = function(data) {
+        if (data.result == 0) {
+
+            var citytext =  data.msg['data'];
+            $('#citytitle').text(name);
+
+            var result = '';
+            var count = 0;
+            var fileLine = '';
+            for (var key in citytext) {
+                // result = '<p>' + result + key + ':' + citytext[key] + '</p>'; //获取key值
+                var number = (citytext[key] == "undefined" || citytext[key]== "") ? '暂无': parseFloat(citytext[key]).toFixed(2) ;
+
+                fileLine = fileLine + 
+"                     <tr>" + 
+"                      <td>" + key.split("-")[0] +  "</td>" + 
+"                      <td style='color:red;'>" + number +  "</td>"+
+"                      <td>" + key.split("-")[1] + "</td>" + 
+"                     </tr>" ;
+                count = count + 1;
+
+
+                if (count % 5  == 0 || count == citytext.length){
+                result = result + 
+"                        <div class='col-lg-6'>" + 
+"                            <div class='sparkline8-list'>" + 
+"                                <div class='sparkline8-hd'>" + 
+"                                    <h4>表格-" + count / 5 + "</h4>" + 
+"                                </div>" + 
+"                                <div class='sparkline8-graph'>" + 
+"                                    <div class='static-table-list'>" + 
+"                                        <table class='table'>" + 
+"                                            <thead>" + 
+"                                                <tr>" + 
+"                                                    <th>指标</th>" + 
+"                                                    <th>数值</th>" + 
+"                                                    <th>单位</th>" + 
+"                                                </tr>" + 
+"                                            </thead>" + 
+"                                            <tbody>" + 
+                                                fileLine +
+"                                            </tbody>" + 
+"                                        </table>" + 
+"                                    </div>" + 
+"                                </div>" + 
+"                            </div>" + 
+"                        </div>" ;
+                    fileLine = '';
+                    
+                }
+            }
+            $('#data').html(result);
+            
+        }else{
+            alert(data.msg);
+        }
+    }
+
+    handle({"result": 0, "msg": {"data": {"\u5e02\u533a\u9762\u79ef-\u5e73\u65b9\u516c\u91cc": 16410.0, "\u5e02\u533a\u4eba\u53e3-\u4e07\u4eba": 2154.2, "\u5e02\u533a\u6682\u4f4f\u4eba\u53e3-\u4e07\u4eba": "", "\u57ce\u533a\u9762\u79ef-\u5e73\u65b9\u516c\u91cc": 16410.0, "\u57ce\u533a\u4eba\u53e3-\u4e07\u4eba": 1863.4, "\u57ce\u533a\u6682\u4f4f\u4eba\u53e3-\u4e07\u4eba": "", "\u5efa\u6210\u533a\u9762\u79ef-\u5e73\u65b9\u516c\u91cc": 1469.05, "\u57ce\u5e02\u5efa\u8bbe\u7528\u5730\u9762\u79ef-\u5e73\u65b9\u516c\u91cc": 1471.7499999999998, "\u5c45\u4f4f\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 427.92, "\u516c\u5171\u7ba1\u7406\u4e0e\u516c\u5171\u670d\u52a1\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 173.14, "\u5546\u4e1a\u670d\u52a1\u4e1a\u8bbe\u65bd\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 137.26, "\u5de5\u4e1a\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 263.09, "\u7269\u6d41\u4ed3\u50a8\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 50.88, "\u9053\u8def\u4ea4\u901a\u8bbe\u65bd\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 271.62, "\u516c\u7528\u8bbe\u65bd\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 31.6, "\u7eff\u5730\u4e0e\u5e7f\u573a\u7528\u5730-\u5e73\u65b9\u516c\u91cc": 116.24, "\u672c\u5e74\u5f81\u7528\u571f\u5730\u9762\u79ef-\u5e73\u65b9\u516c\u91cc": 29.9, "\u8015\u5730-\u5e73\u65b9\u516c\u91cc": 6.12}, "id": "100022258"}});
+
+    function draw(data) {
+        name = data["name"];
+        var cc = getCookie('cc');
+        $.getJSON('https://datamake.cn/image_response/?request_id=' + data['id'] + '&type=citytext&cc=' + cc.substring(1,cc.length -1), handle);
+    }
+
+    // 默认展示 一个图
+    // draw({ "type": "data", "id": "100022258", "name": "2018城市人口和建设用地-北京" })
+
+    // 监听
+    window.addEventListener('message',
+        function(e) {
+            if (e.data['type'] == "data") {
+                // alert(e.data['id']);
+                draw(e.data);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+    .list {
+        display: block;
+        margin: 15px 3px 3px 3px;
+        color: white;
+        font: 14px/20px "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";
+        font-size: 12px;
+        font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";
+
+    }
+
+    .item {
+        zoom: 1;
+        transition: background-color 0.6s ease;
+        display: block;
+    }
+
+    .time {
+        float: left;
+        width: 50px;
+        color: red;
+    }
+
+    .txt {
+        float: left;
+        margin-left: 10px;
+        width: 230px;
+    }
+
+    hr {
+        width: 100%;
+        size: 10;
+        height: 1px;
+        border: none;
+        background-color: #716e6e;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="width: 300px;height: 612px;color:white;">
+        <div style="text-align: center;">
+            <span class="">7*24直播</span>
+        </div>
+        <div class="list">
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">美元兑南非兰特日内涨幅达2%。</p>
+                </div>
+                <hr>
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">8月4日，证券时报·e公司记者在华为心声社区看到，华为“南泥湾项目”、“鸿蒙”正内部紧急招人中，其“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值得一提的是，南泥湾精神早在几年前，已内化于华为。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">美元兑南非兰特日内涨幅达2%。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">8月4日，证券时报·e公司记者在华为心声社区看到，华为“南泥湾项目”、“鸿蒙”正内部紧急招人中，其“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值得一提的是，南泥湾精神早在几年前，已内化于华为。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值。</p>
+                </div>
+                <hr />
+            </div>
+            <div class="item">
+                <div class="time">
+                    <p>20:54:24</p>
+                </div>
+                <div class="txt">
+                    <p class="">“急招开发和测试，预计招聘人数充足、审批快”的“挖人”信息广泛发布于华为心声社区各帖内。值。</p>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    $.ajaxSetup({
+        async: false
+    });
+
+    // 全局函数
+    window.news_rolling = function(data) {
+        if (data.result == 0) {
+            var htmlContent = '';
+            $.each(data.msg, function(idx, obj) {
+                var objJson = eval('(' + obj + ')');
+                htmlContent = htmlContent +
+                    "<div class='item'  >  " +
+                    " <div class='time'>  " +
+                    "<p>" + objJson.time.substring(10) + "</p> " +
+                    "</div>           " +
+                    "<div class='txt'>   " +
+                    "   <p class=''>" + objJson.title + "</p>" +
+                    "</div>   " +
+                    " <hr/>   " +
+                    "</div> ";
+
+
+            });
+            $('.list').html(htmlContent);
+        }
+    }
+
+
+    function call() {
+        $.getJSON('https://datamake.cn/get_news/?key=news_rolling', news_rolling);
+    }
+
+    call();
+    setTimeout(function fn() {
+        setTimeout(call, 30000);
+    }, 30000);
+    </script>
+</body>
+
+</html>

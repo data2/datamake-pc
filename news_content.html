@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <style type="text/css">
+    body {
+        color: #fff;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-size: 14px;
+        line-height: 1.42857143;
+        font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+        font-weight: 600;
+    }
+
+    .list {
+        display: block;
+        margin: 15px 3px 3px 3px;
+        color: white;
+        font: 14px/20px "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";
+        font-size: 12px;
+        font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";
+
+    }
+
+    .item {
+
+        zoom: 1;
+        transition: background-color 0.6s ease;
+        display: block;
+    }
+
+    .time {
+        float: left;
+        width: 70px;
+        color: red;
+    }
+
+    .txt {
+        float: left;
+        margin-left: 10px;
+        width: 800px;
+    }
+
+    .txt a{
+        color: white;
+    }
+
+    hr {
+        width: 100%;
+        size: 10;
+        height: 1px;
+        border: none;
+        background-color: #716e6e;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="news_content" style="padding: 0px 20px 12px 20px;width: 900px;">
+        <!-- 正文 -->
+        <div style="display: inline-block;">
+            <hr>
+            <div class="list">
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+    $.ajaxSetup({
+        async: false
+    });
+
+    // 全局函数
+    window.news_rolling = function(data) {
+        if (data.result == 0) {
+            var htmlContent = '';
+            $.each(data.msg, function(idx, obj) {
+                var objJson = eval('(' + obj + ')');
+                htmlContent = htmlContent +
+                    "<div class='item'  >  " +
+                    " <div class='time'>  " +
+                    "  <p>" + (objJson['origin'] == 'sina' ? objJson.time.substring(10) :   objJson.time.substring(0,10)) + "</p> " +
+                    " </div>           " +
+                    " <div class='txt'>   " +
+                    "   <p class=''>" + (objJson['origin'] == 'sina' ? objJson.title :   "<a href = '" + objJson.url +"'>" +  objJson.title +"</a>" )  + "</p>" +
+                    " </div>   " +
+                    " <hr/>   " +
+                    "</div> ";
+
+
+            });
+            $('.list').html(htmlContent);
+        }
+    }
+
+
+    function call(key) {
+        $.getJSON('https://datamake.cn/get_news/?key='+key, news_rolling);
+    }
+
+    call('news_rolling_data');
+    // setTimeout(function fn() {
+    //     setTimeout(call(), 30000);
+    // }, 30000);
+
+    // 监听
+    window.addEventListener('message',
+        function(e) {
+            if (e.data['type'] == "data") {
+                call(e.data['key']);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
