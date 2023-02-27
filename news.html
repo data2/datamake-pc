@@ -16,6 +16,7 @@
     body {
         background-color: #2b2a2a;
         color: #fff;
+        overflow-x : hidden;  
     }
 
     /* 左侧菜单 */
@@ -128,14 +129,14 @@
         </div>
         <!--正文 -->
         <div style="">
-            <div class="content" style="width: 888px;height: 726px;margin: 12px 12px 12px 0px;background-color: #393939;">
+            <div class="content" style="height: 726px;margin: 12px 12px 12px 0px;background-color: #393939;">
                 <!-- title -->
                 <div style="width: 888px;height: 40px; text-align: left;display: inline-block;">
                     <button data-toggle="modal" data-target="" type="button" id = 'data' style=" font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_data');">经济数据</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'sse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_sse');">上交所</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'szse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_szse');">深交所</button>
                 </div>
-                <iframe src="news_content.html" id="content" style="width: 888px;height: 620px"></iframe>
+                <iframe src="news_content.html" id="content" style="width: 888px;height: 685px"></iframe>
             </div>
         </div>
         <!--底部 快讯 公告 -->
