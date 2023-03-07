@@ -63,6 +63,10 @@
 
     /* 右侧正文 */
     .content {
+        width: 800px;
+
+        height: 726px;
+        margin: 12px 12px 12px 0px;
         color: #fff;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         font-size: 14px;
@@ -70,6 +74,26 @@
         font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
         font-weight: 600;
     }
+
+
+@media screen and (min-width: 1201px) { 
+
+    /* 右侧正文 */
+    .content {
+        width: 1000px;
+
+        height: 700px;
+        margin-left: 50px;
+        margin-top: 30px;
+        color: #fff;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-size: 14px;
+        line-height: 1.42857143;
+        font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+        font-weight: 600;
+    }
+
+}
 
     .content h3 {
         font-size: 18px;
@@ -100,7 +124,7 @@
     </nav>
     <!--main-->
     <section id="pricing" style="height: 880px;border:0.01px black solid;">
-        <div style="width: 1440px;height: 25px;margin-top:50px; background-color: #393939;font-size: 14px;"><span style="margin-left: 20px;"></span> </div>
+        <div style="height: 25px;margin-top:50px; background-color: #393939;font-size: 14px;"><span style="margin-left: 20px;"></span> </div>
         <!-- 左侧菜单-->
         <div style="width: 200px;height: 400px;float: left;margin-top: 12px;">
             <ul class="left-sidebar-menu-pro">
@@ -128,19 +152,18 @@
             <iframe src="news_directory.html" name="directory" style="width: 311px;height: 726px;margin: 12px 12px 12px 12px;background-color: #393939; "></iframe>
         </div>
         <!--正文 -->
-        <div style="">
-            <div class="content" style="height: 726px;margin: 12px 12px 12px 0px;background-color: #393939;">
+        <div style="margin-left: 60px;">
                 <!-- title -->
-                <div style="width: 888px;height: 40px; text-align: left;display: inline-block;">
+                <div style="width: 600px;height: 5px; display: inline-block;float: left;margin-top: 10px;margin-left: 100px;">
                     <button data-toggle="modal" data-target="" type="button" id = 'data' style=" font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_data');">经济数据</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'sse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_sse');">上交所</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'szse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_szse');">深交所</button>
                 </div>
-                <iframe src="news_content.html" id="content" style="width: 888px;height: 685px"></iframe>
-            </div>
+                <iframe src="news_content.html" id="content" class="content"></iframe>
+           
         </div>
         <!--底部 快讯 公告 -->
-        <div style="width: 1440px;height: 50px;line-height: 25px; margin-top: 750px; background-color: #393939;font-size: 14px; ">
+        <div style="height: 10px;line-height: 25px; background-color: #393939;font-size: 14px; ">
             <div style="height: 50px;line-height: 20px; ">
                 <div id='bottom_msg'></div><br />
                 <!-- <span style="float:right;">公告：代马数据专业版即将上线</span> -->

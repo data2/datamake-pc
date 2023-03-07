@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> -->
     <title>代马数据网|代马榜单，让金融数据一目了然 | 中国股票排行榜</title>
     <meta name="description" content="代马数据|代马榜单，让金融等行业数据一目了然！代马数据，助力您科学决策" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -63,6 +64,12 @@
 
     /* 右侧正文 */
     .content {
+
+        width: 800px;
+
+        height: 726px;
+
+        margin: 12px 12px 12px 0px;
         color: #fff;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         font-size: 14px;
@@ -70,6 +77,41 @@
         font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
         font-weight: 600;
     }
+
+    @media screen and (min-width: 1201px) { 
+
+     /* 右侧正文 */
+        .content {
+            width: 900px;
+            height: 726px;
+            margin-top: 50px;
+            margin-left: 150px;
+            color: #fff;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: 14px;
+            line-height: 1.42857143;
+            font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+            font-weight: 600;
+        }
+
+    } 
+/* css 注释说明：设置了浏览器宽度不小于1201px时 abc 显示1200px宽度 */ 
+
+    @media screen and (max-width: 900px) { 
+    /* 右侧正文 */
+            .content {
+                width: 800px;
+                height: 726px;
+                margin: 12px 12px 12px 0px;
+                color: #fff;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                font-size: 140px;
+                line-height: 1.42857143;
+                font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+                font-weight: 600;
+            }
+    } 
+    /* 设置了浏览器宽度不大于1000px时 abc 显示900px宽度 */ 
 
     .content h3 {
         font-size: 18px;
@@ -111,7 +153,7 @@ var _hmt = _hmt || [];
     </nav>
     <!--main-->
     <section id="pricing" style="height: 880px;border:0.01px black solid;">
-        <div style="width: 1440px;height: 25px;margin-top:50px; background-color: #393939;font-size: 14px;"><span style="margin-left: 20px;"></span> </div>
+        <div style="height: 25px;margin-top:50px; background-color: #393939;font-size: 14px;"><span style="margin-left: 20px;"></span> </div>
         <!-- 左侧菜单-->
         <div style="width: 200px;height: 400px;float: left;margin-top: 12px;">
             <ul class="left-sidebar-menu-pro">
@@ -138,13 +180,13 @@ var _hmt = _hmt || [];
         <div style="width: 335px;height: 750px;float: left; ">
             <iframe src="data_directory.html" id="directory" name="directory" style="width: 311px;height: 726px;margin: 12px 12px 12px 12px;background-color: #393939;"></iframe>
         </div>
-        <!--正文 -->
+        <!--正文 --> 
         <div style="">
-            <iframe src="data_content.html" id="content" class="content" style="width: 888px;height: 726px;margin: 12px 12px 12px 0px;background-color: #393939;">
+            <iframe src="data_content.html" id="content" class="content" style="">
             </iframe>
         </div>
         <!--底部 快讯 公告 -->
-        <div style="width: 1440px;height: 50px;line-height: 25px; margin-top: 750px; background-color: #393939;font-size: 14px; ">
+        <div style="height: 10px;line-height: 25px; background-color: #393939;font-size: 14px; ">
             <div style="height: 50px;line-height: 20px; ">
                 <div id='bottom_msg'></div><br />
                 <!-- <span style="float:right;">公告：代马数据专业版即将上线</span> -->
