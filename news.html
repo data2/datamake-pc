@@ -76,11 +76,11 @@
     }
 
 
-@media screen and (min-width: 1201px) { 
+@media screen and (min-width: 1600px) { 
 
     /* 右侧正文 */
     .content {
-        width: 1000px;
+        width: 1200px;
 
         height: 700px;
         margin-left: 50px;
@@ -155,6 +155,7 @@
         <div style="margin-left: 60px;">
                 <!-- title -->
                 <div style="width: 600px;height: 5px; display: inline-block;float: left;margin-top: 10px;margin-left: 100px;">
+                    <button data-toggle="modal" data-target="" type="button" id = 'data' style=" font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_stat_news');">国家部委数据</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'data' style=" font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_data');">经济数据</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'sse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_sse');">上交所</button>
                     <button data-toggle="modal" data-target="" type="button" id = 'szse' style="font-size: 1rem;line-height: 0.8rem; " class="btn btn-secondary my-2 my-sm-0 btn-signup" onclick="requestNews('news_rolling_szse');">深交所</button>
