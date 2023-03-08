@@ -32,13 +32,13 @@
 
     .time {
 /*        float: left;
-*/        width: 70px;
+*/        width: 200px;
         color: red;
     }
 
     .txt {
         /*float: left;*/
-        margin-left: 10px;
+        /*margin-left: 10px;*/
     }
 
     .txt a{
@@ -77,13 +77,18 @@
             var htmlContent = '';
             $.each(data.msg, function(idx, obj) {
                 var objJson = eval('(' + obj + ')');
+                // var reg=/[u4E00-u9FA5]/g;
+                // var date= objJson.date.replace(reg,'');
                 htmlContent = htmlContent +
                     "<div class='item'  >  " +
                     " <div class='time'>  " +
-                    "  <p>" + (objJson['origin'] == 'sina' ? objJson.time.substring(10) :   objJson.time.substring(0,10)) + "</p> " +
+                    "  <p>" +  objJson.date + "</p> " +
                     " </div>           " +
                     " <div class='txt'>   " +
-                    "   <p class=''>" + (objJson['origin'] == 'sina' ? objJson.title :   "<a href = '" + objJson.url +"'>" +  objJson.title +"</a>" )  + "</p>" +
+                    "   <p class=''>" +  objJson.title  + "</p>" +
+                    " </div>   " +
+                    " <div class='txt'>   " +
+                    "   <p class=''>" +  objJson.content + "</p>" +
                     " </div>   " +
                     " <hr/>   " +
                     "</div> ";
@@ -99,7 +104,7 @@
         $.getJSON('https://datamake.cn/get_news/?key='+key, news_rolling);
     }
 
-    call('news_rolling_data');
+    call('news_rolling_stat_news');
     // setTimeout(function fn() {
     //     setTimeout(call(), 30000);
     // }, 30000);
